@@ -33,7 +33,6 @@ export class AppComponent{
   addTask(){
     this.taskCount ++;
     let t = this.chrono;
-    console.log(this.majoration);
     this.tasks.push(new Task(this.chrono.timeDifference(this.lastTask), this.taskCount, this.selectTaskElement, this.allureFactor, this.majoration, this.selectTaskType));
     this.lastTask.updateTime(t.ms, t.s, t.min, t.h);//change lastTask so we remember time of this task for next one
   }
@@ -119,7 +118,6 @@ class Time{
   }
   timeDifference(t: Time){
     let total = Math.abs(this.totalMs() - t.totalMs());
-    console.log(total);
     let res = new Time();
     res.fromTotal(total);
     return res;

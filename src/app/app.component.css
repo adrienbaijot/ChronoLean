@@ -3,6 +3,13 @@
   margin-left: 10%;
 }
 .sliderWidth{
-  width: 50%;
+  width: 100px;
+}
+.fullWidth{
+  max-width: 100%;
+  width: 50px;
+}
+.optionRow{
+  padding-top: 20px;
 }
 

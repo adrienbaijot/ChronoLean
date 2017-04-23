@@ -5,7 +5,6 @@
   <div class="row">
     <div class="col-xs-2">
       <button class="btn btn-success btn-lg" (click)="startChrono()">
-        Start
         <span class="glyphicon glyphicon-play-circle"></span>
       </button>
     </div>
@@ -14,23 +13,20 @@
     </h4>
     <div class="col-xs-6">
       <button class="btn btn-primary btn-lg" (click)="addTask()">
-        Add
         <span class="glyphicon glyphicon-plus"></span>
       </button>
       <button class="btn btn-warning btn-lg" (click)="stopChrono()">
-        Stop
         <span class="glyphicon glyphicon-off"></span>
       </button>
       <button class="btn btn-danger btn-lg" (click)="resetChrono()">
-        Reset
         <span class="glyphicon glyphicon-refresh"></span>
       </button>
     </div>
   </div>
-  <div class="row">
+  <div class="row optionRow">
     <div class="col-xs-2">
-      <md-select [(ngModel)]="selectTaskElement">
-        <md-option *ngFor="let taskElement of taskElements" [value]="taskElement">
+      <md-select [(ngModel)]="selectTaskElement" class="selectWidth" placeholder="Element">
+        <md-option *ngFor="let taskElement of taskElements" [value]="taskElement" class="fullWidth">
           {{taskElement}}
         </md-option>
       </md-select>
@@ -48,7 +44,7 @@
       %
     </div>
     <div class="col-xs-2">
-      <md-select [(ngModel)]="selectTaskType">
+      <md-select [(ngModel)]="selectTaskType" placeholder="Type">
         <md-option *ngFor="let taskType of taskTypes" [value]="taskType">
           {{taskType}}
         </md-option>
@@ -61,7 +57,7 @@
       <th class="col-xs-1">Element</th>
       <th class="col-xs-2">Duration</th>
       <th class="col-xs-2">Allure factor</th>
-      <th class="col-xs-1">Majoration %</th>
+      <th class="col-xs-1">Maj %</th>
       <th class="col-xs-2">Standard Duration</th>
       <th class="col-xs-2">Task Type</th>
       <th class="col-xs-1"></th>
@@ -93,7 +89,7 @@
       </td>
       <td class="col-xs-2">
         <md-select [(ngModel)]="task.taskType">
-          <md-option *ngFor="let taskType of taskTypes" [value]="taskType" >
+          <md-option *ngFor="let taskType of taskTypes" [value]="taskType">
             {{taskType}}
           </md-option>
         </md-select>
