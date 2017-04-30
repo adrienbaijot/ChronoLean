@@ -37,27 +37,27 @@
   <!-- second row : displayed on >xs screens and if bar button is pressed on mobile -->
   <!-- Displays on one row on large screens, and on two on mobile (takes a lot of space, which is why it can be hidden -->
   <div fxLayout="row" fxLayoutAlign="space-around" fxLayoutWrap fxFlexOrder="1" fxFlexOrder.xs="2" fxShow [fxHide.xs]="xsHideMenu">
-    <div fxFlex="120px" fxFlexOrder="1">
+      <div fxFlex="120px" fxFlex.xs="45" fxFlexOrder="1">
       <md-select [(ngModel)]="selectTaskElement" placeholder="Element" class="select-align">
         <md-option *ngFor="let taskElement of taskElements" [value]="taskElement">
           {{taskElement}}
         </md-option>
       </md-select>
     </div>
-    <div fxFlex="120px" fxFlexOrder="4" fxFlexOrder.xs="2">
+    <div fxFlex="120px" fxFlex.xs="45" fxFlexOrder="4" fxFlexOrder.xs="2">
       <md-select [(ngModel)]="selectTaskType" placeholder="Type" class="select-align">
         <md-option *ngFor="let taskType of taskTypes" [value]="taskType">
           {{taskType}}
         </md-option>
       </md-select>
     </div>
-    <div fxFlex="220px" fxFlexOrder="2" fxFlexOrder.xs="4">
+    <div fxFlex="220px" fxFlex.xs="65" fxFlexOrder="2" fxFlexOrder.xs="4">
       <md-slider min="50" max="150" [(ngModel)]="allureFactor" step="5" thumbLabel></md-slider>
       <md-input-container class="inputWidth">
         <input mdInput [(ngModel)]="allureFactor" placeholder="Allure Factor">
       </md-input-container>
     </div>
-    <div fxFlex="100px" fxFlex.xs="60px" fxFlexOrder="3" fxFlexOrder.xs="3">
+    <div fxFlex="100px" fxFlex.xs="25" fxFlexOrder="3" fxFlexOrder.xs="3">
       <md-input-container>
         <input mdInput [(ngModel)]="majoration" placeholder="%majoration">
       </md-input-container>
