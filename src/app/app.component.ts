@@ -8,12 +8,7 @@ import {ChronoTask} from 'app/task';
 })
 export class AppComponent {
   public tasks: ChronoTask[] = new Array();
-  public taskElements: string[];
-  public taskTypes: string[];
-  constructor(){
-    this.taskElements = ["A", "B", "C", "D", "E", "NVA"];
-    this.taskTypes = ["Operation", "Control", "Stock", "Movement", "Idle"];
-  }
+  constructor(){}
   removeTask(originalPosition: number) {
     let index = this.tasks.map(function (e) {
       return e.originalPosition

@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Observable, Subscription} from 'rxjs/Rx';
-
 import {Time} from 'app/time';
 import {ChronoTask} from 'app/task';
+import {ChronoTaskService} from 'app/chrono-task-service.service'
+
+
 @Component({
   selector: 'chrono-overlay',
   templateUrl: './chrono-overlay.component.html',
@@ -15,16 +17,17 @@ export class ChronoOverlayComponent implements OnInit{
   @Input() tasks: ChronoTask[];
   public allureFactor;
   public taskCount: number;
-  @Input() public taskElements: string[];
+  public taskElements: string[];
   public selectTaskElement: string;
-  @Input() public taskTypes: string[];
+  public taskTypes: string[];
   public selectTaskType: string;
   public majoration: number;
   timer = Observable.timer(10, 10);
   timersub: Subscription;
-  constructor() { }
-
+  constructor(private ChronoTaskService: ChronoTaskService) {}
   ngOnInit() {
+    this.taskElements = this.ChronoTaskService.getTaskElements();
+    this.taskTypes = this.ChronoTaskService.getTaskTypes();
     this.xsHideMenu = true;
     this.chrono = new Time();
     this.lastTask = new Time();

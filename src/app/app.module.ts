@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChronoTaskComponent } from './chrono-task/chrono-task.component';
 import { ChronoOverlayComponent } from './chrono-overlay/chrono-overlay.component';
+import {ChronoTaskService} from 'app/chrono-task-service.service'
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { ChronoOverlayComponent } from './chrono-overlay/chrono-overlay.componen
     NgbModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ChronoTaskService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
