@@ -48,4 +48,13 @@ color class used for debugging/learning flex layout
 .centerChrono{
   padding-top:15px;
 }
-
+.no-td-padding{
+  padding: 0px;
+}
+/* if a text is too long for the <td>, hides the part*/
+.th{
+  overflow:hidden;
+}
+.center{
+  text-align:center;
+}

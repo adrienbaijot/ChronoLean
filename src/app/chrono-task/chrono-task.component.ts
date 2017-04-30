@@ -16,6 +16,7 @@ export class ChronoTaskComponent implements OnInit {
   @Output() eventRemoveTask = new EventEmitter();
   constructor(private ChronoTaskService: ChronoTaskService) {}
   ngOnInit() {
+    console.log("test");
     this.showTaskOptions=false;
     this.taskElements = this.ChronoTaskService.getTaskElements();
     this.taskTypes = this.ChronoTaskService.getTaskTypes();

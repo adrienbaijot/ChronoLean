@@ -12,8 +12,8 @@ export class ChronoTask {
     this.allureFactor = allureFactor || 100;
     this.majoration = majoration || 0;
     this.originalPosition = originalPosition || 0;
-    this.taskType = taskType || "undefined";
-    this.taskElement = taskElement || "undefined";
+    this.taskType = taskType || "N/A";
+    this.taskElement = taskElement || "N/A";
   }
   standardDuration(){
     let coeff = (+this.allureFactor + +this.majoration)/100; //the second + is here to cast a string as a number (mdInput stringify its value)

@@ -1,3 +1,20 @@
 .text-align{
   padding-top: 24px;
 }
+.restrict-button{
+  width:100%;
+  max-width:50px !important;
+}
+.options-done-button{
+  color:#39ab58;
+}
+.no-td-padding{
+  padding: 0px;
+  text-align: center;
+}
+.icon-align{
+  padding-top: 18px;
+}
+.center{
+  text-align:center;
+}

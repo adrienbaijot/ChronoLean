@@ -6,17 +6,17 @@
 <!-- Table with every task added, with every option displayed on large screen and some shown with a button pressed on mobile
       on mobile the goal is to display the essentials : element, duration, standard duration, modify button -->
 <div>
-  <table class="table table-stripped" fxLayout="column">
+  <table class="table table-bordered" fxLayout="column">
     <tr fxLayout="row">
-      <th fxFlex="40px">N°</th>
-      <th fxFlex="120px">Element</th>
-      <th fxFlex="150px" fxShow fxHide.xs>Duration</th>
-      <th fxFlex="100px" fxShow fxHide.xs>Allure factor</th>
-      <th fxFlex="100px" fxShow fxHide.xs>Maj %</th>
-      <th fxFlex="150px">Standard Duration</th>
-      <th fxFlex="120px">Task Type</th>
-      <th fxFlex="50px"></th>
+      <th fxFlex="5" fxHide.xs>N°</th>
+      <th fxFlex="20" fxFlex.xs="60px"><span fxHide.xs>Element</span><span fxHide fxShow.xs>Elt</span></th>
+      <th fxFlex="15" fxShow fxHide.xs>Original Duration</th>
+      <th fxFlex="10" fxShow fxHide.xs>Allure</th>
+      <th fxFlex="10" fxShow fxHide.xs>Maj %</th>
+      <th fxFlex="15" fxFlex.xs="auto" class="center"><span fxHide.xs>Standard Duration</span><span fxHide fxShow.xs>Duration</span></th>
+      <th fxFlex="20" fxFlex.xs="100px">Task Type</th>
+      <th fxFlex="5" fxFlex.xs="100px"></th>
     </tr>
-    <chrono-task *ngFor="let cTask of tasks" [task]="cTask" (eventRemoveTask)="removeTask($event)" [taskElements]="taskElements" [taskTypes]="taskTypes"></chrono-task>
+    <chrono-task *ngFor="let cTask of tasks" [task]="cTask" (eventRemoveTask)="removeTask($event)"></chrono-task>
   </table>
 </div>
