@@ -1,104 +1,22 @@
-<div class="page-header">
-  <h1>LeanChrono</h1>
-</div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-2">
-      <button class="btn btn-success btn-lg" (click)="startChrono()">
-        <span class="glyphicon glyphicon-play-circle"></span>
-      </button>
-    </div>
-    <h4 class="col-xs-3 col-xs-offset-1">
-      {{chrono.displayTime()}}
-    </h4>
-    <div class="col-xs-6">
-      <button class="btn btn-primary btn-lg" (click)="addTask()">
-        <span class="glyphicon glyphicon-plus"></span>
-      </button>
-      <button class="btn btn-warning btn-lg" (click)="stopChrono()">
-        <span class="glyphicon glyphicon-off"></span>
-      </button>
-      <button class="btn btn-danger btn-lg" (click)="resetChrono()">
-        <span class="glyphicon glyphicon-refresh"></span>
-      </button>
-    </div>
-  </div>
-  <div class="row optionRow">
-    <div class="col-xs-2">
-      <md-select [(ngModel)]="selectTaskElement" class="selectWidth" placeholder="Element">
-        <md-option *ngFor="let taskElement of taskElements" [value]="taskElement" class="fullWidth">
-          {{taskElement}}
-        </md-option>
-      </md-select>
-    </div>
-    <div class="col-xs-4">
-      <md-slider min="50" max="150" [(ngModel)]="allureFactor" step="5" thumbLabel class="sliderWidth"></md-slider>
-      <md-input-container class="inputWidth">
-        <input mdInput [(ngModel)]="allureFactor">
-      </md-input-container>
-    </div>
-    <div class="col-xs-2">
-      <md-input-container class="inputWidth">
-        <input mdInput [(ngModel)]="majoration">
-      </md-input-container>
-      %
-    </div>
-    <div class="col-xs-2">
-      <md-select [(ngModel)]="selectTaskType" placeholder="Type">
-        <md-option *ngFor="let taskType of taskTypes" [value]="taskType">
-          {{taskType}}
-        </md-option>
-      </md-select>
-    </div>
-  </div>
-  <table class="table table-stripped">
-    <tr class="row">
-      <th class="col-xs-1">N°</th>
-      <th class="col-xs-1">Element</th>
-      <th class="col-xs-2">Duration</th>
-      <th class="col-xs-2">Allure factor</th>
-      <th class="col-xs-1">Maj %</th>
-      <th class="col-xs-2">Standard Duration</th>
-      <th class="col-xs-2">Task Type</th>
-      <th class="col-xs-1"></th>
-
+<!-- The layout is optimized for mobile and larger screens but not for turned mobile screen (larger width than height) and will not be ergonomic in this setup -->
+<md-toolbar>
+  <h1>Lean Chrono</h1>
+</md-toolbar>
+<chrono-overlay [tasks] = "tasks" [taskElements]="taskElements" [taskTypes]="taskTypes"></chrono-overlay>
+<!-- Table with every task added, with every option displayed on large screen and some shown with a button pressed on mobile
+      on mobile the goal is to display the essentials : element, duration, standard duration, modify button -->
+<div>
+  <table class="table table-stripped" fxLayout="column">
+    <tr fxLayout="row">
+      <th fxFlex="40px">N°</th>
+      <th fxFlex="120px">Element</th>
+      <th fxFlex="150px" fxShow fxHide.xs>Duration</th>
+      <th fxFlex="100px" fxShow fxHide.xs>Allure factor</th>
+      <th fxFlex="100px" fxShow fxHide.xs>Maj %</th>
+      <th fxFlex="150px">Standard Duration</th>
+      <th fxFlex="120px">Task Type</th>
+      <th fxFlex="50px"></th>
     </tr>
-    <tr class="row" *ngFor="let task of tasks">
-      <td class="col-xs-1">{{task.originalPosition}}</td>
-      <td class="col-xs-1">
-        <md-select [(ngModel)]="task.taskElement">
-          <md-option *ngFor="let taskElement of taskElements" [value]="taskElement">
-            {{taskElement}}
-          </md-option>
-        </md-select>
-      </td>
-      <td class="col-xs-2">{{task.timeValue.displayTime()}}</td>
-      <td class="col-xs-2">
-        <md-input-container>
-          <input mdInput [(ngModel)]="task.allureFactor">
-        </md-input-container>
-      </td>
-      <td class="col-xs-1">
-        <md-input-container class="inputWidth">
-          <input mdInput [(ngModel)]="task.majoration">
-        </md-input-container>
-        %
-      </td>
-      <td class="col-xs-2">
-        {{task.standardDuration().displayTime()}}
-      </td>
-      <td class="col-xs-2">
-        <md-select [(ngModel)]="task.taskType">
-          <md-option *ngFor="let taskType of taskTypes" [value]="taskType">
-            {{taskType}}
-          </md-option>
-        </md-select>
-      </td>
-      <td class="col-xs-1">
-        <button class="btn btn-default" (click)="removeTask(task.originalPosition)">
-          <span class="glyphicon glyphicon-remove"></span>
-        </button>
-      </td>
-    </tr>
+    <chrono-task *ngFor="let cTask of tasks" [task]="cTask" (eventRemoveTask)="removeTask($event)" [taskElements]="taskElements" [taskTypes]="taskTypes"></chrono-task>
   </table>
 </div>

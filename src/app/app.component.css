@@ -1,15 +1,51 @@
-.inputWidth{
-  width: 30%;
-  margin-left: 10%;
+/*
+Note for anyone reviewing this code : I suck at and HATE CSS. That's why I try to use as many framework as I can (angular material and flex layout, bootstrap, etc)
+But even with them I end up doing weird things
+Don't judge me on that :'(
+Most of the class are here to tweak angular material components or adjust property acording to screen size (mobile/computer)
+ */
+.overlay{
+  position: fixed;
+  z-index:100;
+  bottom:0px;
+  width:100%;
+  background-color: #ebebeb;
+  padding-top:20px;
+  border-style:solid;
+  border-width: 2px 0px 0px 0px;
+  border-color: #b9b9b9;
 }
-.sliderWidth{
-  width: 100px;
+.inputWidth {
+  max-width: 80px;
 }
-.fullWidth{
-  max-width: 100%;
-  width: 50px;
+.smallMdInput{
+  max-width: 40px;
 }
-.optionRow{
-  padding-top: 20px;
+/* class used to align md-select to md-input, 11 px looks the best to me*/
+.select-align{
+  padding-top:11px;
+}
+/*
+color class used for debugging/learning flex layout
+ */
+.color1 {
+  background-color: #3949ab;
+}
+
+.color2 {
+  background-color: #39ab58;
+}
+
+.color3 {
+  background-color: #aba640;
+}
+.color4{
+  background-color: #bd5357;
+}
+.color5{
+  background-color: #ab4aa6;
+}
+.centerChrono{
+  padding-top:15px;
 }
 

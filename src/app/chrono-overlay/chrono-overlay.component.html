@@ -1,0 +1,66 @@
+<!--  Overlay at the bottom of the screen, position fixed and z-index higher than rest
+      First Flex container contain two child containers representing the two different rows -->
+<div fxLayout="column"fxLayoutGap="10px" class="overlay">
+  <!-- align space-around to put as much space as possible between buttons
+       For mobile : second row is hidden and shown at the bottom if a button is pressed
+       For larger screen : chrono row is at the bottom and the option row on top -->
+  <div fxLayout="row" fxLayoutAlign="space-around" fxLayoutGap.xs="5px" fxFlexOrder="2" fxFlexOrder.xs="1">
+    <!-- button starting the chronometer -->
+    <div fxFlex.xs="40px" fxFlex="60px">
+      <button md-mini-fab class.xs="smaller-fab" class="bigger-mini-fab" color="primary" (click)="startChrono()">
+        <i class="fa fa-play fa-2x" class.xs="fa fa-play fa-lg"></i>
+      </button>
+    </div>
+    <!-- display of the chronometer -->
+    <div fxFlex="150px" fxFlex.xs="85px">
+      <h3 class="chrono-text" class.xs="xs-chrono-text">{{chrono.displayTime()}}</h3>
+    </div>
+    <!-- 3 buttons for adding a task, stopping and resetting the chrono -->
+    <div fxFlex="2 1 200px" fxFlex.xs="2 1 130px">
+      <button md-mini-fab class.xs="smaller-fab" class="bigger-mini-fab" (click)="addTask()" color="accent">
+        <i class="fa fa-plus fa-2x" class.xs="fa fa-plus fa-lg"></i>
+      </button>
+      <button md-mini-fab class.xs="smaller-fab" class="bigger-mini-fab" (click)="stopChrono()" color="warn">
+        <i class="fa fa-stop fa-2x" class.xs="fa fa-stop fa-lg"></i>
+      </button>
+      <button md-mini-fab class.xs="smaller-fab" class="bigger-mini-fab" (click)="resetChrono()" color="warn">
+        <i class="fa fa-refresh fa-2x" class.xs="fa fa-refresh fa-lg"></i>
+      </button>
+    </div>
+    <!-- bar button, shown only in xs screen size, used to display the second row for mobile devices -->
+    <div fxFlex.xs="40px" fxFlex="60px" fxHide fxShow.xs>
+      <button md-mini-fab class.xs="smaller-fab bar-button" class="bigger-mini-fab bar-button" (click)="showMenu()">
+        <i class="fa fa-bars fa-2x" class.xs="fa fa-bars fa-lg"></i>
+      </button>
+    </div>
+  </div>
+  <!-- second row : displayed on >xs screens and if bar button is pressed on mobile -->
+  <!-- Displays on one row on large screens, and on two on mobile (takes a lot of space, which is why it can be hidden -->
+  <div fxLayout="row" fxLayoutAlign="space-around" fxLayoutWrap fxFlexOrder="1" fxFlexOrder.xs="2" fxShow [fxHide.xs]="xsHideMenu">
+    <div fxFlex="120px" fxFlexOrder="1">
+      <md-select [(ngModel)]="selectTaskElement" placeholder="Element" class="select-align">
+        <md-option *ngFor="let taskElement of taskElements" [value]="taskElement">
+          {{taskElement}}
+        </md-option>
+      </md-select>
+    </div>
+    <div fxFlex="120px" fxFlexOrder="4" fxFlexOrder.xs="2">
+      <md-select [(ngModel)]="selectTaskType" placeholder="Type" class="select-align">
+        <md-option *ngFor="let taskType of taskTypes" [value]="taskType">
+          {{taskType}}
+        </md-option>
+      </md-select>
+    </div>
+    <div fxFlex="220px" fxFlexOrder="2" fxFlexOrder.xs="4">
+      <md-slider min="50" max="150" [(ngModel)]="allureFactor" step="5" thumbLabel></md-slider>
+      <md-input-container class="inputWidth">
+        <input mdInput [(ngModel)]="allureFactor" placeholder="Allure Factor">
+      </md-input-container>
+    </div>
+    <div fxFlex="100px" fxFlex.xs="60px" fxFlexOrder="3" fxFlexOrder.xs="3">
+      <md-input-container>
+        <input mdInput [(ngModel)]="majoration" placeholder="%majoration">
+      </md-input-container>
+    </div>
+  </div>
+</div>

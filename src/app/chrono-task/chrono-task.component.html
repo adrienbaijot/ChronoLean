@@ -1,0 +1,45 @@
+<tr fxLayout="row" fxLayoutWrap>
+  <td fxFlex="40px" class="text-align">{{task.originalPosition}}</td>
+  <td fxFlex="120px">
+    <md-select [(ngModel)]="task.taskElement" class="select-align" placeholder="Element">
+      <md-option *ngFor="let taskElement of taskElements" [value]="taskElement">
+        {{taskElement}}
+      </md-option>
+    </md-select>
+  </td>
+  <td fxFlex="150px" class="text-align">{{task.timeValue.displayTime()}}</td>
+  <td fxFlex="100px">
+    <md-input-container>
+      <input mdInput [(ngModel)]="task.allureFactor">
+    </md-input-container>
+  </td>
+  <td fxFlex="100px">
+    <md-input-container class="inputWidth">
+      <input mdInput [(ngModel)]="task.majoration">
+    </md-input-container>
+  </td>
+  <td fxFlex="150px" class="text-align">
+    {{task.standardDuration().displayTime()}}
+  </td>
+  <td fxFlex="120px">
+    <md-select [(ngModel)]="task.taskType" class="select-align" placeholder="Type">
+      <md-option *ngFor="let taskType of taskTypes" [value]="taskType">
+        {{taskType}}
+      </md-option>
+    </md-select>
+  </td>
+  <td fxFlex="50px" fxHide fxShow.xs>
+    <button md-raised-button (click)="showTaskOptions=true" [hidden]="!showTaskOptions">
+      <i class="fa fa-pencil-square-o fa-lg"></i>
+    </button>
+    <button md-raised-button (click)="showTaskOptions=false" [hidden]="showTaskOptions">
+      <i class="fa fa-check-square-o fa-lg"></i>
+    </button>
+  </td>
+  <td fxFlex="50px">
+    <button md-mini-fab (click)="removeTask(task.originalPosition)" color="warn">
+      <i class="fa fa-times"></i>
+    </button>
+  </td>
+</tr>
+

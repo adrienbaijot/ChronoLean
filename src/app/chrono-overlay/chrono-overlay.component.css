@@ -1,0 +1,35 @@
+.xs-chrono-text{
+  font-size: 16px;
+  line-height: 40px;
+}
+.chrono-text{
+  line-height:60px;
+}
+.bigger-mini-fab{
+  width:60px;
+  height:60px;
+}
+.bar-button{
+   background-color: #d3c8c8;
+}
+.inputWidth {
+  max-width: 80px;
+}
+.smallMdInput{
+  max-width: 40px;
+}
+/* class used to align md-select to md-input, 11 px looks the best to me*/
+.select-align{
+  padding-top:11px;
+}
+.overlay{
+  position: fixed;
+  z-index:100;
+  bottom:0px;
+  width:100%;
+  background-color: #ebebeb;
+  padding-top:20px;
+  border-style:solid;
+  border-width: 2px 0px 0px 0px;
+  border-color: #b9b9b9;
+}
