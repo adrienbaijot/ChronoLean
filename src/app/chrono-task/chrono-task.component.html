@@ -26,7 +26,7 @@ On mobile elements are smaller, and fully shown on several rows after a "modify"
     </button>
   </td>
 </tr>
-<tr fxLayout="row" fxLayoutWrap [fxHide.xs]="!showTaskOptions">
+<tr fxLayout="row" fxLayoutWrap [fxHide.xs]="!showTaskOptions" class.xs="mobileModifyRow">
   <td fxFlex="5" fxFlex.xs="10" class="text-align" fxFlexOrder.xs="1">{{task.originalPosition}}</td>
   <td fxFlex="20" fxFlex.xs="45" fxFlexOrder.xs="2">
     <md-select [(ngModel)]="task.taskElement" class="select-align" placeholder="Element">
