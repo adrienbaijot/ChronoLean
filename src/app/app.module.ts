@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdSelectModule, MdOptionModule, MdSliderModule, MdInputModule, MdButtonModule, MdToolbarModule} from '@angular/material';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import 'hammerjs';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -25,7 +24,6 @@ import {ChronoTaskService} from 'app/chrono-task-service.service'
     HttpModule,
     MdSelectModule, MdOptionModule, MdSliderModule, MdInputModule, MdButtonModule, MdToolbarModule,
     FlexLayoutModule,
-    NgbModule.forRoot(),
     BrowserAnimationsModule
   ],
   providers: [ChronoTaskService],

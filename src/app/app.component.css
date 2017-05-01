@@ -58,3 +58,6 @@ color class used for debugging/learning flex layout
 .center{
   text-align:center;
 }
+.td{
+  padding: 13px;
+}
